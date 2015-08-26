@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\DocenteHasNivelescolar" table="Docente_has_NivelEscolar">
+    <indexes>
+      <index name="fk_Docente_has_NivelEscolar_NivelEscolar1_idx" columns="NivelEscolar_idNivelEscolar"/>
+      <index name="fk_Docente_has_NivelEscolar_Docente1_idx" columns="Docente_idDocente"/>
+      <index name="fk_Docente_has_NivelEscolar_EntidadEducativa1_idx" columns="EntidadEducativa_idEntidadEducativa"/>
+    </indexes>
+    <id name="docentedocente" association-key="true"/>
+    <id name="nivelescolarnivelescolar" association-key="true"/>
+    <one-to-one field="docentedocente" target-entity="Docente">
+      <join-columns>
+        <join-column name="Docente_idDocente" referenced-column-name="idDocente"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="nivelescolarnivelescolar" target-entity="Nivelescolar">
+      <join-columns>
+        <join-column name="NivelEscolar_idNivelEscolar" referenced-column-name="idNivelEscolar"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="entidadeducativaentidadeducativa" target-entity="Entidadeducativa">
+      <join-columns>
+        <join-column name="EntidadEducativa_idEntidadEducativa" referenced-column-name="idEntidadEducativa"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

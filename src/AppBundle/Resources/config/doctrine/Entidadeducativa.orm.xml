@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Entidadeducativa" table="EntidadEducativa">
+    <id name="identidadeducativa" type="integer" column="idEntidadEducativa">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="45" nullable="false"/>
+    <field name="telefono" type="string" column="telefono" length="45" nullable="true"/>
+    <field name="email" type="string" column="email" length="45" nullable="true"/>
+    <many-to-many field="nivelescolarnivelescolar" target-entity="Nivelescolar" inversed-by="entidadeducativaentidadeducativa">
+      <join-table name="entidadeducativa_has_nivelescolar">
+        <join-columns>
+          <join-column name="EntidadEducativa_idEntidadEducativa" referenced-column-name="idEntidadEducativa"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="NivelEscolar_idNivelEscolar" referenced-column-name="idNivelEscolar"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="estudianteestudiante" target-entity="Estudiante" inversed-by="entidadeducativaentidadeducativa">
+      <join-table name="entidadeducativa_has_estudiante">
+        <join-columns>
+          <join-column name="EntidadEducativa_idEntidadEducativa" referenced-column-name="idEntidadEducativa"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="Estudiante_idEstudiante" referenced-column-name="idEstudiante"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="docentedocente" target-entity="Docente" inversed-by="entidadeducativaentidadeducativa">
+      <join-table name="entidadeducativa_has_docente">
+        <join-columns>
+          <join-column name="EntidadEducativa_idEntidadEducativa" referenced-column-name="idEntidadEducativa"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="Docente_idDocente" referenced-column-name="idDocente"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Matricula" table="Matricula">
+    <indexes>
+      <index name="fk_Matricula_EntidadEducativa1_idx" columns="EntidadEducativa_idEntidadEducativa"/>
+      <index name="fk_Matricula_Estudiante1_idx" columns="Estudiante_idEstudiante"/>
+      <index name="fk_Matricula_NivelEscolar1_idx" columns="NivelEscolar_idNivelEscolar"/>
+    </indexes>
+    <id name="idmatricula" type="integer" column="idMatricula">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="añoescolar" type="integer" column="añoEscolar" nullable="true"/>
+    <many-to-one field="nivelescolarnivelescolar" target-entity="Nivelescolar">
+      <join-columns>
+        <join-column name="NivelEscolar_idNivelEscolar" referenced-column-name="idNivelEscolar"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="estudianteestudiante" target-entity="Estudiante">
+      <join-columns>
+        <join-column name="Estudiante_idEstudiante" referenced-column-name="idEstudiante"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="entidadeducativaentidadeducativa" target-entity="Entidadeducativa">
+      <join-columns>
+        <join-column name="EntidadEducativa_idEntidadEducativa" referenced-column-name="idEntidadEducativa"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

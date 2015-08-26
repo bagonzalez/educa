@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Conducta" table="Conducta">
+    <id name="idconducta" type="integer" column="idConducta">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombreitemconducta" type="string" column="nombreItemConducta" length="255" nullable="true"/>
+    <field name="descripcionitem" type="text" column="descripcionItem" nullable="true"/>
+  </entity>
+</doctrine-mapping>
