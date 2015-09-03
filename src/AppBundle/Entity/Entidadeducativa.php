@@ -27,31 +27,51 @@ class Entidadeducativa
     /**
      * @var integer
      */
+    private $sector;
+
+    /**
+     * @var integer
+     */
+    private $zona;
+
+    /**
+     * @var integer
+     */
     private $identidadeducativa;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \AppBundle\Entity\Municipio
      */
-    private $nivelescolarnivelescolar;
+    private $municipio;
+
+    /**
+     * @var \AppBundle\Entity\Departamento
+     */
+    private $departamento;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $estudianteestudiante;
+    private $nivelescolar;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $docentedocente;
+    private $docente;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $estudiante;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->nivelescolarnivelescolar = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->estudianteestudiante = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->docentedocente = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->nivelescolar = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->docente = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estudiante = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -124,6 +144,52 @@ class Entidadeducativa
     }
 
     /**
+     * Set sector
+     *
+     * @param integer $sector
+     * @return Entidadeducativa
+     */
+    public function setSector($sector)
+    {
+        $this->sector = $sector;
+
+        return $this;
+    }
+
+    /**
+     * Get sector
+     *
+     * @return integer 
+     */
+    public function getSector()
+    {
+        return $this->sector;
+    }
+
+    /**
+     * Set zona
+     *
+     * @param integer $zona
+     * @return Entidadeducativa
+     */
+    public function setZona($zona)
+    {
+        $this->zona = $zona;
+
+        return $this;
+    }
+
+    /**
+     * Get zona
+     *
+     * @return integer 
+     */
+    public function getZona()
+    {
+        return $this->zona;
+    }
+
+    /**
      * Get identidadeducativa
      *
      * @return integer 
@@ -134,101 +200,147 @@ class Entidadeducativa
     }
 
     /**
-     * Add nivelescolarnivelescolar
+     * Set municipio
      *
-     * @param \AppBundle\Entity\Nivelescolar $nivelescolarnivelescolar
+     * @param \AppBundle\Entity\Municipio $municipio
      * @return Entidadeducativa
      */
-    public function addNivelescolarnivelescolar(\AppBundle\Entity\Nivelescolar $nivelescolarnivelescolar)
+    public function setMunicipio(\AppBundle\Entity\Municipio $municipio = null)
     {
-        $this->nivelescolarnivelescolar[] = $nivelescolarnivelescolar;
+        $this->municipio = $municipio;
 
         return $this;
     }
 
     /**
-     * Remove nivelescolarnivelescolar
+     * Get municipio
      *
-     * @param \AppBundle\Entity\Nivelescolar $nivelescolarnivelescolar
+     * @return \AppBundle\Entity\Municipio 
      */
-    public function removeNivelescolarnivelescolar(\AppBundle\Entity\Nivelescolar $nivelescolarnivelescolar)
+    public function getMunicipio()
     {
-        $this->nivelescolarnivelescolar->removeElement($nivelescolarnivelescolar);
+        return $this->municipio;
     }
 
     /**
-     * Get nivelescolarnivelescolar
+     * Set departamento
      *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getNivelescolarnivelescolar()
-    {
-        return $this->nivelescolarnivelescolar;
-    }
-
-    /**
-     * Add estudianteestudiante
-     *
-     * @param \AppBundle\Entity\Estudiante $estudianteestudiante
+     * @param \AppBundle\Entity\Departamento $departamento
      * @return Entidadeducativa
      */
-    public function addEstudianteestudiante(\AppBundle\Entity\Estudiante $estudianteestudiante)
+    public function setDepartamento(\AppBundle\Entity\Departamento $departamento = null)
     {
-        $this->estudianteestudiante[] = $estudianteestudiante;
+        $this->departamento = $departamento;
 
         return $this;
     }
 
     /**
-     * Remove estudianteestudiante
+     * Get departamento
      *
-     * @param \AppBundle\Entity\Estudiante $estudianteestudiante
+     * @return \AppBundle\Entity\Departamento 
      */
-    public function removeEstudianteestudiante(\AppBundle\Entity\Estudiante $estudianteestudiante)
+    public function getDepartamento()
     {
-        $this->estudianteestudiante->removeElement($estudianteestudiante);
+        return $this->departamento;
     }
 
     /**
-     * Get estudianteestudiante
+     * Add nivelescolar
      *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getEstudianteestudiante()
-    {
-        return $this->estudianteestudiante;
-    }
-
-    /**
-     * Add docentedocente
-     *
-     * @param \AppBundle\Entity\Docente $docentedocente
+     * @param \AppBundle\Entity\Nivelescolar $nivelescolar
      * @return Entidadeducativa
      */
-    public function addDocentedocente(\AppBundle\Entity\Docente $docentedocente)
+    public function addNivelescolar(\AppBundle\Entity\Nivelescolar $nivelescolar)
     {
-        $this->docentedocente[] = $docentedocente;
+        $this->nivelescolar[] = $nivelescolar;
 
         return $this;
     }
 
     /**
-     * Remove docentedocente
+     * Remove nivelescolar
      *
-     * @param \AppBundle\Entity\Docente $docentedocente
+     * @param \AppBundle\Entity\Nivelescolar $nivelescolar
      */
-    public function removeDocentedocente(\AppBundle\Entity\Docente $docentedocente)
+    public function removeNivelescolar(\AppBundle\Entity\Nivelescolar $nivelescolar)
     {
-        $this->docentedocente->removeElement($docentedocente);
+        $this->nivelescolar->removeElement($nivelescolar);
     }
 
     /**
-     * Get docentedocente
+     * Get nivelescolar
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getDocentedocente()
+    public function getNivelescolar()
     {
-        return $this->docentedocente;
+        return $this->nivelescolar;
+    }
+
+    /**
+     * Add docente
+     *
+     * @param \AppBundle\Entity\Docente $docente
+     * @return Entidadeducativa
+     */
+    public function addDocente(\AppBundle\Entity\Docente $docente)
+    {
+        $this->docente[] = $docente;
+
+        return $this;
+    }
+
+    /**
+     * Remove docente
+     *
+     * @param \AppBundle\Entity\Docente $docente
+     */
+    public function removeDocente(\AppBundle\Entity\Docente $docente)
+    {
+        $this->docente->removeElement($docente);
+    }
+
+    /**
+     * Get docente
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDocente()
+    {
+        return $this->docente;
+    }
+
+    /**
+     * Add estudiante
+     *
+     * @param \AppBundle\Entity\Estudiante $estudiante
+     * @return Entidadeducativa
+     */
+    public function addEstudiante(\AppBundle\Entity\Estudiante $estudiante)
+    {
+        $this->estudiante[] = $estudiante;
+
+        return $this;
+    }
+
+    /**
+     * Remove estudiante
+     *
+     * @param \AppBundle\Entity\Estudiante $estudiante
+     */
+    public function removeEstudiante(\AppBundle\Entity\Estudiante $estudiante)
+    {
+        $this->estudiante->removeElement($estudiante);
+    }
+
+    /**
+     * Get estudiante
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEstudiante()
+    {
+        return $this->estudiante;
     }
 }

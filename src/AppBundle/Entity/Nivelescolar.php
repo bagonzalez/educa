@@ -22,19 +22,24 @@ class Nivelescolar
     /**
      * @var integer
      */
+    private $turno;
+
+    /**
+     * @var integer
+     */
     private $idnivelescolar;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $entidadeducativaentidadeducativa;
+    private $entidadeducativa;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->entidadeducativaentidadeducativa = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->entidadeducativa = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -84,6 +89,29 @@ class Nivelescolar
     }
 
     /**
+     * Set turno
+     *
+     * @param integer $turno
+     * @return Nivelescolar
+     */
+    public function setTurno($turno)
+    {
+        $this->turno = $turno;
+
+        return $this;
+    }
+
+    /**
+     * Get turno
+     *
+     * @return integer 
+     */
+    public function getTurno()
+    {
+        return $this->turno;
+    }
+
+    /**
      * Get idnivelescolar
      *
      * @return integer 
@@ -94,35 +122,35 @@ class Nivelescolar
     }
 
     /**
-     * Add entidadeducativaentidadeducativa
+     * Add entidadeducativa
      *
-     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativaentidadeducativa
+     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativa
      * @return Nivelescolar
      */
-    public function addEntidadeducativaentidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativaentidadeducativa)
+    public function addEntidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativa)
     {
-        $this->entidadeducativaentidadeducativa[] = $entidadeducativaentidadeducativa;
+        $this->entidadeducativa[] = $entidadeducativa;
 
         return $this;
     }
 
     /**
-     * Remove entidadeducativaentidadeducativa
+     * Remove entidadeducativa
      *
-     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativaentidadeducativa
+     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativa
      */
-    public function removeEntidadeducativaentidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativaentidadeducativa)
+    public function removeEntidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativa)
     {
-        $this->entidadeducativaentidadeducativa->removeElement($entidadeducativaentidadeducativa);
+        $this->entidadeducativa->removeElement($entidadeducativa);
     }
 
     /**
-     * Get entidadeducativaentidadeducativa
+     * Get entidadeducativa
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEntidadeducativaentidadeducativa()
+    public function getEntidadeducativa()
     {
-        return $this->entidadeducativaentidadeducativa;
+        return $this->entidadeducativa;
     }
 }

@@ -2398,16 +2398,16 @@
         },
         {
             "name": "sonata-project/admin-bundle",
-            "version": "2.3.4",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "a037a230a156787abc5b8792438ce453635ff02d"
+                "reference": "8ce1a1b605e6b897e5403aa2003d40a05eca2f69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/a037a230a156787abc5b8792438ce453635ff02d",
-                "reference": "a037a230a156787abc5b8792438ce453635ff02d",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/8ce1a1b605e6b897e5403aa2003d40a05eca2f69",
+                "reference": "8ce1a1b605e6b897e5403aa2003d40a05eca2f69",
                 "shasum": ""
             },
             "require": {
@@ -2437,11 +2437,13 @@
                 "jms/translation-bundle": "~1.1",
                 "sonata-project/intl-bundle": "~2.1",
                 "symfony/phpunit-bridge": "~2.7|~3.0",
+                "symfony/security-acl": "~2.4",
                 "symfony/yaml": "~2.3"
             },
             "suggest": {
                 "jms/translation-bundle": "Extract message keys from Admins",
-                "sonata-project/intl-bundle": "Add localized date and number into the list"
+                "sonata-project/intl-bundle": "Add localized date and number into the list",
+                "symfony/security-acl": "To make sonata working with Symfony >=2.8"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2477,7 +2479,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2015-07-24 13:27:16"
+            "time": "2015-08-26 08:07:15"
         },
         {
             "name": "sonata-project/block-bundle",

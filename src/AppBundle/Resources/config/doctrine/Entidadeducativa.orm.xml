@@ -1,39 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="AppBundle\Entity\Entidadeducativa" table="EntidadEducativa">
+    <indexes>
+      <index name="fk_EntidadEducativa_Municipio1_idx" columns="Municipio"/>
+      <index name="fk_EntidadEducativa_Departamento1_idx" columns="Departamento"/>
+    </indexes>
     <id name="identidadeducativa" type="integer" column="idEntidadEducativa">
       <generator strategy="IDENTITY"/>
     </id>
     <field name="nombre" type="string" column="nombre" length="45" nullable="false"/>
     <field name="telefono" type="string" column="telefono" length="45" nullable="true"/>
     <field name="email" type="string" column="email" length="45" nullable="true"/>
-    <many-to-many field="nivelescolarnivelescolar" target-entity="Nivelescolar" inversed-by="entidadeducativaentidadeducativa">
+    <field name="sector" type="integer" column="sector" nullable="true"/>
+    <field name="zona" type="integer" column="zona" nullable="true"/>
+    <many-to-one field="municipio" target-entity="Municipio">
+      <join-columns>
+        <join-column name="Municipio" referenced-column-name="idMunicipio"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="departamento" target-entity="Departamento">
+      <join-columns>
+        <join-column name="Departamento" referenced-column-name="idDepartamento"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="nivelescolar" target-entity="Nivelescolar" inversed-by="entidadeducativa">
       <join-table name="entidadeducativa_has_nivelescolar">
         <join-columns>
-          <join-column name="EntidadEducativa_idEntidadEducativa" referenced-column-name="idEntidadEducativa"/>
+          <join-column name="EntidadEducativa" referenced-column-name="idEntidadEducativa"/>
         </join-columns>
         <inverse-join-columns>
-          <join-column name="NivelEscolar_idNivelEscolar" referenced-column-name="idNivelEscolar"/>
+          <join-column name="NivelEscolar" referenced-column-name="idNivelEscolar"/>
         </inverse-join-columns>
       </join-table>
     </many-to-many>
-    <many-to-many field="estudianteestudiante" target-entity="Estudiante" inversed-by="entidadeducativaentidadeducativa">
-      <join-table name="entidadeducativa_has_estudiante">
-        <join-columns>
-          <join-column name="EntidadEducativa_idEntidadEducativa" referenced-column-name="idEntidadEducativa"/>
-        </join-columns>
-        <inverse-join-columns>
-          <join-column name="Estudiante_idEstudiante" referenced-column-name="idEstudiante"/>
-        </inverse-join-columns>
-      </join-table>
-    </many-to-many>
-    <many-to-many field="docentedocente" target-entity="Docente" inversed-by="entidadeducativaentidadeducativa">
+    <many-to-many field="docente" target-entity="Docente" inversed-by="entidadeducativa">
       <join-table name="entidadeducativa_has_docente">
         <join-columns>
-          <join-column name="EntidadEducativa_idEntidadEducativa" referenced-column-name="idEntidadEducativa"/>
+          <join-column name="EntidadEducativa" referenced-column-name="idEntidadEducativa"/>
         </join-columns>
         <inverse-join-columns>
-          <join-column name="Docente_idDocente" referenced-column-name="idDocente"/>
+          <join-column name="Docente" referenced-column-name="idDocente"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="estudiante" target-entity="Estudiante" inversed-by="entidadeducativa">
+      <join-table name="entidadeducativa_has_estudiante">
+        <join-columns>
+          <join-column name="EntidadEducativa" referenced-column-name="idEntidadEducativa"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="Estudiante" referenced-column-name="idEstudiante"/>
         </inverse-join-columns>
       </join-table>
     </many-to-many>

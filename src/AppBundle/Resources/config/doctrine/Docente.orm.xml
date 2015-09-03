@@ -8,6 +8,6 @@
     <field name="apellido" type="string" column="apellido" length="45" nullable="false"/>
     <field name="fechanacimiento" type="date" column="fechaNacimiento" nullable="true"/>
     <field name="sexo" type="enum" column="sexo" nullable="true"/>
-    <many-to-many field="entidadeducativaentidadeducativa" target-entity="Entidadeducativa" mapped-by="docentedocente"/>
+    <many-to-many field="entidadeducativa" target-entity="Entidadeducativa" mapped-by="docente"/>
   </entity>
 </doctrine-mapping>

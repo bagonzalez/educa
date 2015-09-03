@@ -15,6 +15,16 @@ class Matricula
     private $añoescolar;
 
     /**
+     * @var boolean
+     */
+    private $repite;
+
+    /**
+     * @var boolean
+     */
+    private $sobreedad;
+
+    /**
      * @var integer
      */
     private $idmatricula;
@@ -22,17 +32,17 @@ class Matricula
     /**
      * @var \AppBundle\Entity\Nivelescolar
      */
-    private $nivelescolarnivelescolar;
+    private $nivelescolar;
 
     /**
      * @var \AppBundle\Entity\Estudiante
      */
-    private $estudianteestudiante;
+    private $estudiante;
 
     /**
      * @var \AppBundle\Entity\Entidadeducativa
      */
-    private $entidadeducativaentidadeducativa;
+    private $entidadeducativa;
 
 
     /**
@@ -59,6 +69,52 @@ class Matricula
     }
 
     /**
+     * Set repite
+     *
+     * @param boolean $repite
+     * @return Matricula
+     */
+    public function setRepite($repite)
+    {
+        $this->repite = $repite;
+
+        return $this;
+    }
+
+    /**
+     * Get repite
+     *
+     * @return boolean 
+     */
+    public function getRepite()
+    {
+        return $this->repite;
+    }
+
+    /**
+     * Set sobreedad
+     *
+     * @param boolean $sobreedad
+     * @return Matricula
+     */
+    public function setSobreedad($sobreedad)
+    {
+        $this->sobreedad = $sobreedad;
+
+        return $this;
+    }
+
+    /**
+     * Get sobreedad
+     *
+     * @return boolean 
+     */
+    public function getSobreedad()
+    {
+        return $this->sobreedad;
+    }
+
+    /**
      * Get idmatricula
      *
      * @return integer 
@@ -69,71 +125,71 @@ class Matricula
     }
 
     /**
-     * Set nivelescolarnivelescolar
+     * Set nivelescolar
      *
-     * @param \AppBundle\Entity\Nivelescolar $nivelescolarnivelescolar
+     * @param \AppBundle\Entity\Nivelescolar $nivelescolar
      * @return Matricula
      */
-    public function setNivelescolarnivelescolar(\AppBundle\Entity\Nivelescolar $nivelescolarnivelescolar = null)
+    public function setNivelescolar(\AppBundle\Entity\Nivelescolar $nivelescolar = null)
     {
-        $this->nivelescolarnivelescolar = $nivelescolarnivelescolar;
+        $this->nivelescolar = $nivelescolar;
 
         return $this;
     }
 
     /**
-     * Get nivelescolarnivelescolar
+     * Get nivelescolar
      *
      * @return \AppBundle\Entity\Nivelescolar 
      */
-    public function getNivelescolarnivelescolar()
+    public function getNivelescolar()
     {
-        return $this->nivelescolarnivelescolar;
+        return $this->nivelescolar;
     }
 
     /**
-     * Set estudianteestudiante
+     * Set estudiante
      *
-     * @param \AppBundle\Entity\Estudiante $estudianteestudiante
+     * @param \AppBundle\Entity\Estudiante $estudiante
      * @return Matricula
      */
-    public function setEstudianteestudiante(\AppBundle\Entity\Estudiante $estudianteestudiante = null)
+    public function setEstudiante(\AppBundle\Entity\Estudiante $estudiante = null)
     {
-        $this->estudianteestudiante = $estudianteestudiante;
+        $this->estudiante = $estudiante;
 
         return $this;
     }
 
     /**
-     * Get estudianteestudiante
+     * Get estudiante
      *
      * @return \AppBundle\Entity\Estudiante 
      */
-    public function getEstudianteestudiante()
+    public function getEstudiante()
     {
-        return $this->estudianteestudiante;
+        return $this->estudiante;
     }
 
     /**
-     * Set entidadeducativaentidadeducativa
+     * Set entidadeducativa
      *
-     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativaentidadeducativa
+     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativa
      * @return Matricula
      */
-    public function setEntidadeducativaentidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativaentidadeducativa = null)
+    public function setEntidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativa = null)
     {
-        $this->entidadeducativaentidadeducativa = $entidadeducativaentidadeducativa;
+        $this->entidadeducativa = $entidadeducativa;
 
         return $this;
     }
 
     /**
-     * Get entidadeducativaentidadeducativa
+     * Get entidadeducativa
      *
      * @return \AppBundle\Entity\Entidadeducativa 
      */
-    public function getEntidadeducativaentidadeducativa()
+    public function getEntidadeducativa()
     {
-        return $this->entidadeducativaentidadeducativa;
+        return $this->entidadeducativa;
     }
 }

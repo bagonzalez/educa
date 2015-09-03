@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="AppBundle\Entity\Nivelescolar" table="NivelEscolar">
-    <id name="idnivelescolar" type="integer" column="idNivelEscolar">
+  <entity name="AppBundle\Entity\Departamento" table="Departamento">
+    <id name="iddepartamento" type="integer" column="idDepartamento">
       <generator strategy="IDENTITY"/>
     </id>
     <field name="nombre" type="string" column="nombre" length="45" nullable="true"/>
-    <field name="seccion" type="string" column="seccion" length="2" nullable="true"/>
-    <field name="turno" type="integer" column="turno" nullable="true"/>
-    <many-to-many field="entidadeducativa" target-entity="Entidadeducativa" mapped-by="nivelescolar"/>
   </entity>
 </doctrine-mapping>

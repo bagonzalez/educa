@@ -1,0 +1,67 @@
+services:
+    sonata.admin.entidadeducativa:
+        class: AppBundle\Admin\EntidadeducativaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Escuela/Colegio" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Entidadeducativa
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+    
+    sonata.admin.departamento:
+        class: AppBundle\Admin\DepartamentoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Departamentos" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Departamento
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+    
+    sonata.admin.municipio:
+        class: AppBundle\Admin\MunicipioAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Municipios" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Municipio
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+    
+    sonata.admin.docente:
+        class: AppBundle\Admin\DocenteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Docentes" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Docente
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+            
+    
+    sonata.admin.estudiante:
+        class: AppBundle\Admin\EstudianteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Estudiantes" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Estudiante
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+    
+    sonata.admin.nivelescolar:
+        class: AppBundle\Admin\NIvelEscolarAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Niveles Escolares" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Nivelescolar
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]

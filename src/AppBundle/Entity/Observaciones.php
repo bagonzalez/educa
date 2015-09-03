@@ -27,14 +27,14 @@ class Observaciones
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $evaluacionevaluacion;
+    private $evaluacion;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->evaluacionevaluacion = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->evaluacion = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -94,35 +94,35 @@ class Observaciones
     }
 
     /**
-     * Add evaluacionevaluacion
+     * Add evaluacion
      *
-     * @param \AppBundle\Entity\Evaluacion $evaluacionevaluacion
+     * @param \AppBundle\Entity\Evaluacion $evaluacion
      * @return Observaciones
      */
-    public function addEvaluacionevaluacion(\AppBundle\Entity\Evaluacion $evaluacionevaluacion)
+    public function addEvaluacion(\AppBundle\Entity\Evaluacion $evaluacion)
     {
-        $this->evaluacionevaluacion[] = $evaluacionevaluacion;
+        $this->evaluacion[] = $evaluacion;
 
         return $this;
     }
 
     /**
-     * Remove evaluacionevaluacion
+     * Remove evaluacion
      *
-     * @param \AppBundle\Entity\Evaluacion $evaluacionevaluacion
+     * @param \AppBundle\Entity\Evaluacion $evaluacion
      */
-    public function removeEvaluacionevaluacion(\AppBundle\Entity\Evaluacion $evaluacionevaluacion)
+    public function removeEvaluacion(\AppBundle\Entity\Evaluacion $evaluacion)
     {
-        $this->evaluacionevaluacion->removeElement($evaluacionevaluacion);
+        $this->evaluacion->removeElement($evaluacion);
     }
 
     /**
-     * Get evaluacionevaluacion
+     * Get evaluacion
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEvaluacionevaluacion()
+    public function getEvaluacion()
     {
-        return $this->evaluacionevaluacion;
+        return $this->evaluacion;
     }
 }

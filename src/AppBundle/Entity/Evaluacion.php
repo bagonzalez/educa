@@ -20,31 +20,31 @@ class Evaluacion
     private $idevaluacion;
 
     /**
+     * @var \AppBundle\Entity\Conducta
+     */
+    private $conducta;
+
+    /**
      * @var \AppBundle\Entity\Notaconcepto
      */
-    private $notaconceptonotaconcepto;
+    private $notaconcepto;
 
     /**
      * @var \AppBundle\Entity\Matricula
      */
-    private $matriculamatricula;
-
-    /**
-     * @var \AppBundle\Entity\Conducta
-     */
-    private $conductaconducta;
+    private $matricula;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $observacionesobservacion;
+    private $observaciones;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->observacionesobservacion = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->observaciones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -81,104 +81,104 @@ class Evaluacion
     }
 
     /**
-     * Set notaconceptonotaconcepto
+     * Set conducta
      *
-     * @param \AppBundle\Entity\Notaconcepto $notaconceptonotaconcepto
+     * @param \AppBundle\Entity\Conducta $conducta
      * @return Evaluacion
      */
-    public function setNotaconceptonotaconcepto(\AppBundle\Entity\Notaconcepto $notaconceptonotaconcepto = null)
+    public function setConducta(\AppBundle\Entity\Conducta $conducta = null)
     {
-        $this->notaconceptonotaconcepto = $notaconceptonotaconcepto;
+        $this->conducta = $conducta;
 
         return $this;
     }
 
     /**
-     * Get notaconceptonotaconcepto
-     *
-     * @return \AppBundle\Entity\Notaconcepto 
-     */
-    public function getNotaconceptonotaconcepto()
-    {
-        return $this->notaconceptonotaconcepto;
-    }
-
-    /**
-     * Set matriculamatricula
-     *
-     * @param \AppBundle\Entity\Matricula $matriculamatricula
-     * @return Evaluacion
-     */
-    public function setMatriculamatricula(\AppBundle\Entity\Matricula $matriculamatricula = null)
-    {
-        $this->matriculamatricula = $matriculamatricula;
-
-        return $this;
-    }
-
-    /**
-     * Get matriculamatricula
-     *
-     * @return \AppBundle\Entity\Matricula 
-     */
-    public function getMatriculamatricula()
-    {
-        return $this->matriculamatricula;
-    }
-
-    /**
-     * Set conductaconducta
-     *
-     * @param \AppBundle\Entity\Conducta $conductaconducta
-     * @return Evaluacion
-     */
-    public function setConductaconducta(\AppBundle\Entity\Conducta $conductaconducta = null)
-    {
-        $this->conductaconducta = $conductaconducta;
-
-        return $this;
-    }
-
-    /**
-     * Get conductaconducta
+     * Get conducta
      *
      * @return \AppBundle\Entity\Conducta 
      */
-    public function getConductaconducta()
+    public function getConducta()
     {
-        return $this->conductaconducta;
+        return $this->conducta;
     }
 
     /**
-     * Add observacionesobservacion
+     * Set notaconcepto
      *
-     * @param \AppBundle\Entity\Observaciones $observacionesobservacion
+     * @param \AppBundle\Entity\Notaconcepto $notaconcepto
      * @return Evaluacion
      */
-    public function addObservacionesobservacion(\AppBundle\Entity\Observaciones $observacionesobservacion)
+    public function setNotaconcepto(\AppBundle\Entity\Notaconcepto $notaconcepto = null)
     {
-        $this->observacionesobservacion[] = $observacionesobservacion;
+        $this->notaconcepto = $notaconcepto;
 
         return $this;
     }
 
     /**
-     * Remove observacionesobservacion
+     * Get notaconcepto
      *
-     * @param \AppBundle\Entity\Observaciones $observacionesobservacion
+     * @return \AppBundle\Entity\Notaconcepto 
      */
-    public function removeObservacionesobservacion(\AppBundle\Entity\Observaciones $observacionesobservacion)
+    public function getNotaconcepto()
     {
-        $this->observacionesobservacion->removeElement($observacionesobservacion);
+        return $this->notaconcepto;
     }
 
     /**
-     * Get observacionesobservacion
+     * Set matricula
+     *
+     * @param \AppBundle\Entity\Matricula $matricula
+     * @return Evaluacion
+     */
+    public function setMatricula(\AppBundle\Entity\Matricula $matricula = null)
+    {
+        $this->matricula = $matricula;
+
+        return $this;
+    }
+
+    /**
+     * Get matricula
+     *
+     * @return \AppBundle\Entity\Matricula 
+     */
+    public function getMatricula()
+    {
+        return $this->matricula;
+    }
+
+    /**
+     * Add observaciones
+     *
+     * @param \AppBundle\Entity\Observaciones $observaciones
+     * @return Evaluacion
+     */
+    public function addObservacione(\AppBundle\Entity\Observaciones $observaciones)
+    {
+        $this->observaciones[] = $observaciones;
+
+        return $this;
+    }
+
+    /**
+     * Remove observaciones
+     *
+     * @param \AppBundle\Entity\Observaciones $observaciones
+     */
+    public function removeObservacione(\AppBundle\Entity\Observaciones $observaciones)
+    {
+        $this->observaciones->removeElement($observaciones);
+    }
+
+    /**
+     * Get observaciones
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getObservacionesobservacion()
+    public function getObservaciones()
     {
-        return $this->observacionesobservacion;
+        return $this->observaciones;
     }
 }
