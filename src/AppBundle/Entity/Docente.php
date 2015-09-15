@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Docente
@@ -33,19 +34,9 @@ class Docente
      * @var integer
      */
     private $iddocente;
+    
+    protected $entidadeducativaHasDocentes;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $entidadeducativa;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->entidadeducativa = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Set nombre
@@ -138,6 +129,36 @@ class Docente
     {
         return $this->sexo;
     }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setEntidadeducativaHasDocentes($entidadeducativaHasDocentes)
+    {
+        $this->entidadeducativaHasDocentes = new ArrayCollection();
+
+        foreach ($entidadeducativaHasDocentes as $entidadeducativaHasDocente) {
+            $this->addEntidadeducativaHasDocentes($entidadeducativaHasDocente);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEntidadeducativaHasDocentes()
+    {
+        return $this->entidadeducativaHasDocentes;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addEntidadeducativaHasDocentes(EntidadeducativaHasDocente $entidadeducativaHasDocente)
+    {
+        $entidadeducativaHasDocente->setDocente($this);
+
+        $this->entidadeducativaHasDocentes[] = $entidadeducativaHasDocente;
+    }
 
     /**
      * Get iddocente
@@ -148,37 +169,9 @@ class Docente
     {
         return $this->iddocente;
     }
-
-    /**
-     * Add entidadeducativa
-     *
-     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativa
-     * @return Docente
-     */
-    public function addEntidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativa)
+    
+     public function __toString()
     {
-        $this->entidadeducativa[] = $entidadeducativa;
-
-        return $this;
-    }
-
-    /**
-     * Remove entidadeducativa
-     *
-     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativa
-     */
-    public function removeEntidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativa)
-    {
-        $this->entidadeducativa->removeElement($entidadeducativa);
-    }
-
-    /**
-     * Get entidadeducativa
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getEntidadeducativa()
-    {
-        return $this->entidadeducativa;
+        return $this->getNombre();
     }
 }

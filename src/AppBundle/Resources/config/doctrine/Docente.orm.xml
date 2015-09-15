@@ -8,6 +8,18 @@
     <field name="apellido" type="string" column="apellido" length="45" nullable="false"/>
     <field name="fechanacimiento" type="date" column="fechaNacimiento" nullable="true"/>
     <field name="sexo" type="enum" column="sexo" nullable="true"/>
-    <many-to-many field="entidadeducativa" target-entity="Entidadeducativa" mapped-by="docente"/>
+     <many-to-many field="entidadeducativaHasDocentes" target-entity="EntidadeducativaHasDocente" inversed-by="entidadeducativaHasDocentes" >
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        <join-table name="entidadeducativa_has_docente">
+        <join-columns>
+          <join-column name="Docente" referenced-column-name="idDocente"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="Entidadeducativa" referenced-column-name="EntidadEducativa"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

@@ -20,6 +20,10 @@ namespace AppBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\Definition\Processor;
+use Sonata\EasyExtendsBundle\Mapper\DoctrineCollector;
 
 
 /**
@@ -33,5 +37,80 @@ class AppBundleExtension extends Extension
         // ...
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         //$loader->load('admin.yml');
+        
+       
+        
+        //$config        = $processor->processConfiguration($configuration, $configs);
+        
+         //   $this->registerDoctrineMapping($config);
+        
     }
+    
+     /**
+     * @param array $config
+     *
+     * @return void
+     */
+    public function registerDoctrineMapping(array $config)
+    {
+        $collector = DoctrineCollector::getInstance();
+
+        $collector->addAssociation($config['class']['docente'], 'mapOneToMany', array(
+            'fieldName'     => 'entidadeducativaHasDocentes',
+            'targetEntity'  => $config['class']['entidadeducativa_has_docente'],
+            'cascade'       => array(
+                'persist',
+            ),
+            'mappedBy'      => 'media',
+            'orphanRemoval' => false,
+        ));
+
+        $collector->addAssociation($config['class']['entidadeducativa_has_docente'], 'mapManyToOne', array(
+            'fieldName'     => 'docente',
+            'targetEntity'  => $config['class']['docente'],
+            'cascade'       => array(
+                'persist',
+            ),
+            'mappedBy'      => NULL,
+            'inversedBy'    => 'entidadeducativaHasDocentes',
+            'joinColumns'   =>  array(
+                array(
+                    'name'  => 'iddocente',
+                    'referencedColumnName' => 'iddocente',
+                ),
+            ),
+            'orphanRemoval' => false,
+        ));
+
+        $collector->addAssociation($config['class']['entidadeducativa_has_docente'], 'mapManyToOne', array(
+            'fieldName'     => 'entidadeducativa',
+            'targetEntity'  => $config['class']['entidadeducativa'],
+            'cascade'       => array(
+                 'persist',
+            ),
+            'mappedBy'      => NULL,
+            'inversedBy'    => 'entidadeducativaHasDocentes',
+            'joinColumns'   => array(
+                array(
+                    'name'  => 'idDocente',
+                    'referencedColumnName' => 'idDocente',
+                ),
+            ),
+            'orphanRemoval' => false,
+        ));
+
+        $collector->addAssociation($config['class']['entidadeducativa'], 'mapOneToMany', array(
+            'fieldName'     => 'entidadeducativaHasDocentes',
+            'targetEntity'  => $config['class']['entidadeducativaHasDocentes'],
+            'cascade'       => array(
+                'persist',
+            ),
+            'mappedBy'      => 'entidadeducativa',
+            'orphanRemoval' => true,
+            'orderBy'       => array(
+                'position'  => 'ASC',
+            ),
+        ));
+    }
+
 }

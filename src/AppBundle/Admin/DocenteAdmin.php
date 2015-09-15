@@ -31,15 +31,69 @@ use Sonata\AdminBundle\Form\FormMapper;
  * @author bdiaz
  */
 class DocenteAdmin extends Admin{
+    
+    protected $pool;
+
+    /**
+     * @param string                            $code
+     * @param string                            $class
+     * @param string                            $baseControllerName
+     * @param \Sonata\MediaBundle\Provider\Pool $pool
+     */
+    /*public function __construct($code, $class, $baseControllerName, Pool $pool)
+    {
+        parent::__construct($code, $class, $baseControllerName);
+
+        $this->pool = $pool;
+    }*/
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
+        
+       
+
+        /*if (!$context) {
+            $context = $this->pool->getDefaultContext();
+        }
+
+        $formats = array();
+        foreach ((array) $this->pool->getFormatNamesByContext($context) as $name => $options) {
+            $formats[$name] = $name;
+        }
+
+        $contexts = array();
+        foreach ((array) $this->pool->getContexts() as $contextItem => $format) {
+            $contexts[$contextItem] = $contextItem;
+        }*/
+        
+        $pool=$this->configurationPool;
+        
         $formMapper
             ->add('nombre')
             ->add('apellido')
             ->add('fechanacimiento', 'date', array('years' => range(1970, date("Y")-18), 'format' => 'dd-MMMM-yyyy'))
             ->add('sexo', 'choice', array('choices' => array('Masculino' => 'Masculino', 'Femenino' => 'Femenino', 'Otro' => 'Otro')))
+            ->end()
+            ->with('Colegio')
+            /*->add('entidadeducativa', 
+                    'sonata_type_model', array('label' => 'Districts', 'expanded' => true, 'by_reference' => false, 'compound' => true, 'multiple' => true))
+            */
             
+                ->add('entidadeducativaHasDocentes', 'sonata_type_collection', 
+                        
+                    array(
+                        'cascade_validation' => true,
+                    ), array(
+                        'edit'              => 'inline',
+                        'inline'            => 'table',
+                        'sortable'          => 'position',                        
+                        'admin_code'        => 'sonata.admin.entidadeducativahasdocente'
+                       
+                    )
+                         
+                    
+                )
+            ->end()
             //->add('author', 'entity', array('class' => 'AppBundle\Entity\Departamento'))
             //->add('body') //if no type is specified, SonataAdminBundle tries to guess it
         ;

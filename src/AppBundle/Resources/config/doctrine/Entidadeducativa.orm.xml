@@ -13,14 +13,14 @@
     <field name="email" type="string" column="email" length="45" nullable="true"/>
     <field name="sector" type="integer" column="sector" nullable="true"/>
     <field name="zona" type="integer" column="zona" nullable="true"/>
-    <many-to-one field="municipio" target-entity="Municipio">
-      <join-columns>
-        <join-column name="Municipio" referenced-column-name="idMunicipio"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="departamento" target-entity="Departamento">
       <join-columns>
         <join-column name="Departamento" referenced-column-name="idDepartamento"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="municipio" target-entity="Municipio">
+      <join-columns>
+        <join-column name="Municipio" referenced-column-name="idMunicipio"/>
       </join-columns>
     </many-to-one>
     <many-to-many field="nivelescolar" target-entity="Nivelescolar" inversed-by="entidadeducativa">
@@ -30,16 +30,6 @@
         </join-columns>
         <inverse-join-columns>
           <join-column name="NivelEscolar" referenced-column-name="idNivelEscolar"/>
-        </inverse-join-columns>
-      </join-table>
-    </many-to-many>
-    <many-to-many field="docente" target-entity="Docente" inversed-by="entidadeducativa">
-      <join-table name="entidadeducativa_has_docente">
-        <join-columns>
-          <join-column name="EntidadEducativa" referenced-column-name="idEntidadEducativa"/>
-        </join-columns>
-        <inverse-join-columns>
-          <join-column name="Docente" referenced-column-name="idDocente"/>
         </inverse-join-columns>
       </join-table>
     </many-to-many>

@@ -65,3 +65,28 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle]]
+    
+    sonata.admin.conducta:
+        class: AppBundle\Admin\ConductaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Conductas" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Conducta
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+            
+            
+    sonata.admin.entidadeducativaHasDocente:
+        class: AppBundle\Admin\EntidadeducativaHasDocenteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Entidad Has Docente" }
+        arguments:
+            - ~
+            - AppBundle\Entity\EntidadeducativaHasDocente
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+
+    

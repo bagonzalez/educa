@@ -63,6 +63,8 @@ class Entidadeducativa
      * @var \Doctrine\Common\Collections\Collection
      */
     private $estudiante;
+    
+    protected $entidadeducativaHasDocentes;
 
     /**
      * Constructor
@@ -342,5 +344,32 @@ class Entidadeducativa
     public function getEstudiante()
     {
         return $this->estudiante;
+    }
+    
+     /**
+     * {@inheritdoc}
+     */
+    public function setEntidadeducativaHasDocentes($entidadeducativaHasDocentes)
+    {
+        $this->entidadeducativaHasDocentes = new ArrayCollection();
+
+        foreach ($entidadeducativaHasDocentes as $entidadeducativaHasDocente) {
+            $this->addEntidadeducativaHasDocentes($entidadeducativaHasDocente);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEntidadeducativaHasDocentes()
+    {
+        return $this->entidadeducativaHasDocentes;
+    }
+
+   
+    
+    public function __toString()
+    {
+        return $this->getNombre();
     }
 }

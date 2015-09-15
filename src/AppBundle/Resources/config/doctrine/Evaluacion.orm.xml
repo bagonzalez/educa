@@ -10,11 +10,6 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="mesevaluacion" type="integer" column="mesEvaluacion" nullable="true"/>
-    <many-to-one field="conducta" target-entity="Conducta">
-      <join-columns>
-        <join-column name="Conducta" referenced-column-name="idConducta"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="notaconcepto" target-entity="Notaconcepto">
       <join-columns>
         <join-column name="NotaConcepto" referenced-column-name="idNotaConcepto"/>
@@ -23,6 +18,11 @@
     <many-to-one field="matricula" target-entity="Matricula">
       <join-columns>
         <join-column name="Matricula" referenced-column-name="idMatricula"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="conducta" target-entity="Conducta">
+      <join-columns>
+        <join-column name="Conducta" referenced-column-name="idConducta"/>
       </join-columns>
     </many-to-one>
     <many-to-many field="observaciones" target-entity="Observaciones" inversed-by="evaluacion">
