@@ -174,4 +174,14 @@ class Docente
     {
         return $this->getNombre();
     }
+    
+    public function prePersist()
+    {
+        $arreglo=$this->entidadeducativaHasDocentes;
+    }
+
+    public function preUpdate()
+    {
+        $arreglo=$this->entidadeducativaHasDocentes;
+    }
 }

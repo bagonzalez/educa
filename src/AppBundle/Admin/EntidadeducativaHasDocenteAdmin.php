@@ -68,13 +68,16 @@ class EntidadeducativaHasDocenteAdmin extends Admin
                      )
                     
                  )
-            ->add('docente', 'sonata_type_model_list', 
+                
+                 ->add('docente', 'sonata_type_model_list', 
                     array('required' => false,
                         
-                     )                    
+                     )
+                    
                  )
-            ->add('fechainicio', 'date', array('years' => range(1970, 2025), 'format' => 'dd-MMMM-yyyy'))
-            ->add('fechafin', 'date', array('years' => range(1970, 2025), 'format' => 'dd-MMMM-yyyy'))
+            
+            ->add('fechainicio', 'date', array('years' => range(1970, 2025)))
+            ->add('fechafin', 'date', array('years' => range(1970, 2025)))
             ;
     }
 

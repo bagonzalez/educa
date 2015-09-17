@@ -8,7 +8,7 @@
     <field name="apellido" type="string" column="apellido" length="45" nullable="false"/>
     <field name="fechanacimiento" type="date" column="fechaNacimiento" nullable="true"/>
     <field name="sexo" type="enum" column="sexo" nullable="true"/>
-     <many-to-many field="entidadeducativaHasDocentes" target-entity="EntidadeducativaHasDocente" inversed-by="entidadeducativaHasDocentes" >
+    <!--<many-to-many field="entidadeducativaHasDocentes" target-entity="EntidadeducativaHasDocente" inversed-by="EntidadEducativa" >
             <cascade>
                 <cascade-persist/>
             </cascade>
@@ -20,6 +20,16 @@
           <join-column name="Entidadeducativa" referenced-column-name="EntidadEducativa"/>
         </inverse-join-columns>
       </join-table>
-    </many-to-many>
+    </many-to-many>-->
+   
+    <one-to-many field="entidadeducativaHasDocentes" target-entity="EntidadeducativaHasDocente" mapped-by="docente">
+            <cascade>
+                 <cascade-all/>
+            </cascade>            
+     </one-to-many>
+     <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="prePersist" />
+            <lifecycle-callback type="preUpdate" method="preUpdate" />
+     </lifecycle-callbacks>
   </entity>
 </doctrine-mapping>

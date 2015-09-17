@@ -142,8 +142,8 @@ class EntidadeducativaHasDocente
         return $this->docente;
     }
     
-     /*public function __toString()
+     public function __toString()
     {
-        return $this->getDocente()->getNombre().' '.$this->getEntidadeducativa()->getNombre();
-    }*/
+        return $this->getDocente()->getNombre()." ".$this->getEntidadeducativa()->getNombre();
+    }
 }

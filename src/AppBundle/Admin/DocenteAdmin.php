@@ -71,7 +71,7 @@ class DocenteAdmin extends Admin{
         $formMapper
             ->add('nombre')
             ->add('apellido')
-            ->add('fechanacimiento', 'date', array('years' => range(1970, date("Y")-18), 'format' => 'dd-MMMM-yyyy'))
+            ->add('fechanacimiento', 'date', array('years' => range(1970, date("Y")-18)))
             ->add('sexo', 'choice', array('choices' => array('Masculino' => 'Masculino', 'Femenino' => 'Femenino', 'Otro' => 'Otro')))
             ->end()
             ->with('Colegio')
