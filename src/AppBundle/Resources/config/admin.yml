@@ -1,5 +1,5 @@
 services:
-    sonata.admin.entidadeducativa:
+    app.admin.entidadeducativa:
         class: AppBundle\Admin\EntidadeducativaAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Escuela/Colegio" }
@@ -10,7 +10,7 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
     
-    sonata.admin.departamento:
+    app.admin.departamento:
         class: AppBundle\Admin\DepartamentoAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Departamentos" }
@@ -21,7 +21,7 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
     
-    sonata.admin.municipio:
+    app.admin.municipio:
         class: AppBundle\Admin\MunicipioAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Municipios" }
@@ -32,7 +32,7 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
     
-    sonata.admin.docente:
+    app.admin.docente:
         class: AppBundle\Admin\DocenteAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Docentes" }
@@ -44,7 +44,7 @@ services:
             - [ setTranslationDomain, [AppBundle]]
             
     
-    sonata.admin.estudiante:
+    app.admin.estudiante:
         class: AppBundle\Admin\EstudianteAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Estudiantes" }
@@ -55,7 +55,7 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
     
-    sonata.admin.nivelescolar:
+    app.admin.nivelescolar:
         class: AppBundle\Admin\NIvelEscolarAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Niveles Escolares" }
@@ -66,7 +66,7 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
     
-    sonata.admin.conducta:
+    app.admin.conducta:
         class: AppBundle\Admin\ConductaAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Conductas" }
@@ -78,7 +78,7 @@ services:
             - [ setTranslationDomain, [AppBundle]]
             
             
-    sonata.admin.entidadeducativaHasDocente:
+    app.admin.entidadeducativaHasDocente:
         class: AppBundle\Admin\EntidadeducativaHasDocenteAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Entidad Has Docente" }
@@ -89,4 +89,32 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
 
-    
+    app.admin.matricula:
+        class: AppBundle\Admin\MatriculaAdmin
+        arguments: [~, AppBundle\Entity\Matricula, AppBundle:MatriculaAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Content", label: Matricula}
+
+    app.admin.notaconcepto:
+        class: AppBundle\Admin\NotaconceptoAdmin
+        arguments: [~, AppBundle\Entity\Notaconcepto, AppBundle:NotaconceptoAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Content", label: Notaconcepto}
+
+    app.admin.observaciones:
+        class: AppBundle\Admin\ObservacionesAdmin
+        arguments: [~, AppBundle\Entity\Observaciones, AppBundle:ObservacionesAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Content", label: Observaciones}
+
+    app.admin.evaluacion:
+        class: AppBundle\Admin\EvaluacionAdmin
+        arguments: [~, AppBundle\Entity\Evaluacion, AppBundle:EvaluacionAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Content", label: Evaluacion}
+
+    app.admin.docente_has_nivelescolar:
+        class: AppBundle\Admin\DocenteHasNivelescolarAdmin
+        arguments: [~, AppBundle\Entity\DocenteHasNivelescolar, AppBundle:DocenteHasNivelescolarAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Content", label: DocenteHasNivelescolar}

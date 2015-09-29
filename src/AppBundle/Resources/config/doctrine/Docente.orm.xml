@@ -22,9 +22,14 @@
       </join-table>
     </many-to-many>-->
    
-    <one-to-many field="entidadeducativaHasDocentes" target-entity="EntidadeducativaHasDocente" mapped-by="docente">
+    <one-to-many field="entidadeducativaHasDocentes" target-entity="EntidadeducativaHasDocente" mapped-by="docente" orphan-Removal="false">
             <cascade>
-                 <cascade-all/>
+                 <cascade-persist/>
+            </cascade>            
+     </one-to-many>
+     <one-to-many field="nivelesAsignadosHasDocentes" target-entity="DocenteHasNivelescolar" mapped-by="docente" orphan-Removal="false">
+            <cascade>
+                 <cascade-persist/>
             </cascade>            
      </one-to-many>
      <lifecycle-callbacks>

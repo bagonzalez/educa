@@ -53,6 +53,11 @@ class Departamento
         return $this->iddepartamento;
     }
     
+    public function getId()
+    {
+        return $this->iddepartamento;
+    }
+    
     public function __toString()
     {
         return $this->getNombre();

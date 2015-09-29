@@ -12,7 +12,7 @@ class Matricula
     /**
      * @var integer
      */
-    private $añoescolar;
+    private $anioescolar;
 
     /**
      * @var boolean
@@ -51,9 +51,9 @@ class Matricula
      * @param integer $añoescolar
      * @return Matricula
      */
-    public function setAñoescolar($añoescolar)
+    public function setAnioescolar($anioescolar)
     {
-        $this->añoescolar = $añoescolar;
+        $this->anioescolar = $anioescolar;
 
         return $this;
     }
@@ -63,9 +63,9 @@ class Matricula
      *
      * @return integer 
      */
-    public function getAñoescolar()
+    public function getAnioescolar()
     {
-        return $this->añoescolar;
+        return $this->anioescolar;
     }
 
     /**
@@ -120,6 +120,11 @@ class Matricula
      * @return integer 
      */
     public function getIdmatricula()
+    {
+        return $this->idmatricula;
+    }
+    
+    public function getId()
     {
         return $this->idmatricula;
     }

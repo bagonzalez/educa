@@ -81,6 +81,11 @@ class Municipio
         return $this->departamento;
     }
     
+      public function getId()
+    {
+        return $this->idmunicipio;
+    }
+    
     public function __toString()
     {
         return $this->getNombre();

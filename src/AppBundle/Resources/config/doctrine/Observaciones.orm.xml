@@ -5,7 +5,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="nombreobservacion" type="string" column="nombreObservacion" length="255" nullable="false"/>
-    <field name="descripcionobservacion" type="string" column="descripcionObservacion" length="255" nullable="false"/>
+    <field name="descripcionobservacion" type="text" column="descripcionObservacion"  nullable="false"/>
     <many-to-many field="evaluacion" target-entity="Evaluacion" mapped-by="observaciones"/>
   </entity>
 </doctrine-mapping>

@@ -200,6 +200,11 @@ class Entidadeducativa
     {
         return $this->identidadeducativa;
     }
+    
+    public function getId()
+    {
+        return $this->identidadeducativa;
+    }
 
     /**
      * Set municipio
@@ -356,6 +361,16 @@ class Entidadeducativa
         foreach ($entidadeducativaHasDocentes as $entidadeducativaHasDocente) {
             $this->addEntidadeducativaHasDocentes($entidadeducativaHasDocente);
         }
+    }
+    
+    /**
+     * Remove entidadeducativa
+     *
+     * @param \AppBundle\Entity\EntidadeducativaHasDocente $entidadeducativaHasDocente
+     */
+    public function removeEntidadeducativaHasDocentes(EntidadeducativaHasDocente $entidadeducativaHasDocente)
+    {
+        $this->entidadeducativaHasDocentes->removeElement($entidadeducativaHasDocente);
     }
 
     /**

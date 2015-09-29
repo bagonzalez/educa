@@ -23,6 +23,21 @@ class DocenteHasNivelescolar
      * @var \AppBundle\Entity\Entidadeducativa
      */
     private $entidadeducativa;
+    
+     /**
+     * @var integer
+     */
+    private $id;
+    
+      /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
 
     /**

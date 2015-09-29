@@ -36,6 +36,8 @@ class Docente
     private $iddocente;
     
     protected $entidadeducativaHasDocentes;
+    
+    protected $nivelesAsignadosHasDocentes;
 
 
     /**
@@ -133,6 +135,46 @@ class Docente
     /**
      * {@inheritdoc}
      */
+    public function setNivelesAsignadosHasDocentes($nivelesAsignadosHasDocentes)
+    {
+        $this->nivelesAsignadosHasDocentes = new ArrayCollection();
+
+        foreach ($nivelesAsignadosHasDocentes as $nivelesAsignadosHasDocentes) {
+            $this->addNivelesAsignadosHasDocentes($nivelesAsignadosHasDocentes);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getNivelesAsignadosHasDocentes()
+    {
+        return $this->nivelesAsignadosHasDocentes;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addNivelesAsignadosHasDocentes(DocenteHasNivelescolar $nivelesAsignadosHasDocentes)
+    {
+        $nivelesAsignadosHasDocentes->setDocente($this);
+
+        $this->nivelesAsignadosHasDocentes[] = $nivelesAsignadosHasDocentes;
+    }
+    
+    /**
+     * Remove entidadeducativa
+     *
+     * @param \AppBundle\Entity\EntidadeducativaHasDocente $entidadeducativaHasDocente
+     */
+    public function removeNivelesAsignadosHasDocentes(DocenteHasNivelescolar $nivelesAsignadosHasDocentes)
+    {
+        $this->nivelesAsignadosHasDocentes->removeElement($nivelesAsignadosHasDocentes);
+    }
+    
+     /**
+     * {@inheritdoc}
+     */
     public function setEntidadeducativaHasDocentes($entidadeducativaHasDocentes)
     {
         $this->entidadeducativaHasDocentes = new ArrayCollection();
@@ -159,6 +201,16 @@ class Docente
 
         $this->entidadeducativaHasDocentes[] = $entidadeducativaHasDocente;
     }
+    
+    /**
+     * Remove entidadeducativa
+     *
+     * @param \AppBundle\Entity\EntidadeducativaHasDocente $entidadeducativaHasDocente
+     */
+    public function removeEntidadeducativaHasDocentes(EntidadeducativaHasDocente $entidadeducativaHasDocente)
+    {
+        $this->entidadeducativaHasDocentes->removeElement($entidadeducativaHasDocente);
+    }
 
     /**
      * Get iddocente
@@ -166,6 +218,11 @@ class Docente
      * @return integer 
      */
     public function getIddocente()
+    {
+        return $this->iddocente;
+    }
+    
+      public function getId()
     {
         return $this->iddocente;
     }

@@ -34,17 +34,14 @@ class Estudiante
      */
     private $idestudiante;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $entidadeducativa;
+  
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->entidadeducativa = new \Doctrine\Common\Collections\ArrayCollection();
+        
     }
 
     /**
@@ -148,37 +145,19 @@ class Estudiante
     {
         return $this->idestudiante;
     }
-
-    /**
-     * Add entidadeducativa
-     *
-     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativa
-     * @return Estudiante
-     */
-    public function addEntidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativa)
+    
+    public function getId()
     {
-        $this->entidadeducativa[] = $entidadeducativa;
-
-        return $this;
+        return $this->idestudiante;
+    }
+    
+      
+    public function __toString()
+    {
+        return $this->getNombre().' '.$this->getApellido();
     }
 
-    /**
-     * Remove entidadeducativa
-     *
-     * @param \AppBundle\Entity\Entidadeducativa $entidadeducativa
-     */
-    public function removeEntidadeducativa(\AppBundle\Entity\Entidadeducativa $entidadeducativa)
-    {
-        $this->entidadeducativa->removeElement($entidadeducativa);
-    }
 
-    /**
-     * Get entidadeducativa
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getEntidadeducativa()
-    {
-        return $this->entidadeducativa;
-    }
+
+ 
 }

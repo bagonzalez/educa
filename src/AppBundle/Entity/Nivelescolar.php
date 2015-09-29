@@ -120,6 +120,11 @@ class Nivelescolar
     {
         return $this->idnivelescolar;
     }
+    
+    public function getId()
+    {
+        return $this->idnivelescolar;
+    }
 
     /**
      * Add entidadeducativa
@@ -152,5 +157,12 @@ class Nivelescolar
     public function getEntidadeducativa()
     {
         return $this->entidadeducativa;
+    }
+    
+    
+    
+     public function __toString()
+    {
+        return 'Nivel: '.$this->getNombre().' Seccion: '.$this->getSeccion();
     }
 }

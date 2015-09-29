@@ -136,4 +136,9 @@ class Notaconcepto
     {
         return $this->idnotaconcepto;
     }
+    
+    public function getId()
+    {
+        return $this->idnotaconcepto;
+    }
 }

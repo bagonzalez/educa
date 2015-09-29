@@ -11,18 +11,18 @@
     
     <field name="fechainicio" type="date" column="fechaInicio" nullable="true"/>
     <field name="fechafin" type="date" column="fechaFin" nullable="true"/>
-    <many-to-one field="entidadeducativa" target-entity="Entidadeducativa" inversed-by="entidadeducativaHasDocentes" >
+    <many-to-one field="entidadeducativa" target-entity="Entidadeducativa" orphan-Removal="false" inversed-by="entidadeducativaHasDocentes" >
       <cascade>
-            <cascade-all/>
+            <cascade-persist/>
       </cascade>
       <join-columns>
         <join-column name="EntidadEducativa" referenced-column-name="idEntidadEducativa"/>
       </join-columns>
       
     </many-to-one>
-    <many-to-one field="docente" target-entity="Docente" inversed-by="entidadeducativaHasDocentes" >
+    <many-to-one field="docente" target-entity="Docente" orphan-Removal="false" inversed-by="entidadeducativaHasDocentes" >
       <cascade>
-            <cascade-all/>
+            <cascade-persist/>
       </cascade>
       <join-columns>
         <join-column name="Docente" referenced-column-name="idDocente"/>

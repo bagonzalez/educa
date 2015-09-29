@@ -6,8 +6,10 @@
       <index name="fk_Docente_has_NivelEscolar_Docente1_idx" columns="Docente"/>
       <index name="fk_Docente_has_NivelEscolar_EntidadEducativa1_idx" columns="EntidadEducativa"/>
     </indexes>
-    <id name="docente" association-key="true"/>
-    <id name="nivelescolar" association-key="true"/>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+ 
     <one-to-one field="docente" target-entity="Docente">
       <join-columns>
         <join-column name="Docente" referenced-column-name="idDocente"/>

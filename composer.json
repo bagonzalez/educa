@@ -34,7 +34,8 @@
         "sonata-project/page-bundle": "^2.3",
         "sonata-project/notification-bundle": "~2.2",
         "sonata-project/datagrid-bundle": "2.2.*@dev",
-        "symfony/dependency-injection": "^2.7"
+        "symfony/dependency-injection": "^2.7",
+        "sonata-project/intl-bundle": "^2.2"
         
     },
     "require-dev": {

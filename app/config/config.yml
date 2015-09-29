@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml } 
     - { resource: @AppBundle/Resources/config/admin.yml }
+    - { resource: sonata/sonata_admin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -95,6 +96,11 @@ swiftmailer:
 sonata_user:
     security_acl: false
     manager_type: orm # can be orm or mongodb
+    
+#    impersonating:
+#        route:                page_slug
+#        parameters:           { path: / }
+        
     class:
         user:         Application\Sonata\UserBundle\Entity\User
         group:        Application\Sonata\UserBundle\Entity\Group
@@ -103,27 +109,27 @@ sonata_user:
         enabled: true
         server:  yourserver.com
     
-    profile:
-        dashboard:
-            blocks:
-                - { position: left, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> <p>This is a sample user profile dashboard, feel free to override it in the configuration! Want to make this text dynamic? For instance display the user's name? Create a dedicated block and edit the configuration!</p>"} }
+    #profile:
+    #    dashboard:
+    #        blocks:
+    #            - { position: left, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> <p>This is a sample user profile dashboard, feel free to override it in the configuration! Want to make this text dynamic? For instance display the user's name? Create a dedicated block and edit the configuration!</p>"} }
                 #- { position: left, type: sonata.order.block.recent_orders, settings: { title: Recent Orders, number: 5, mode: public }}
                 #- { position: right, type:   sonata.timeline.block.timeline, settings: { max_per_page: 15 }}
                 #- { position: right, type: sonata.news.block.recent_posts, settings: { title: Recent Posts, number: 5, mode: public }}
                 #- { position: right, type: sonata.news.block.recent_comments, settings: { title: Recent Comments, number: 5, mode: public }}
-        menu:
-            - { route: 'sonata_user_profile_show', label: 'sonata_profile_title', domain: 'SonataUserBundle'}
-            - { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
-            #- { route: 'sonata_customer_addresses', label: 'link_list_addresses', domain: 'SonataCustomerBundle'}
-            #- { route: 'sonata_order_index', label: 'order_list', domain: 'SonataOrderBundle'}
-        form:
-            type:                 sonata_user_profile
-            handler:              sonata.user.profile.form.handler.default
-            name:                 sonata_user_profile_form
-            validation_groups:
-                # Defaults:
-                - Profile
-                - Default
+#        menu:
+#            - { route: 'sonata_user_profile_show', label: 'sonata_profile_title', domain: 'SonataUserBundle'}
+#            - { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
+#            #- { route: 'sonata_customer_addresses', label: 'link_list_addresses', domain: 'SonataCustomerBundle'}
+#            #- { route: 'sonata_order_index', label: 'order_list', domain: 'SonataOrderBundle'}
+#        form:
+#            type:                 sonata_user_profile
+#            handler:              sonata.user.profile.form.handler.default
+#            name:                 sonata_user_profile_form
+#            validation_groups:
+#                # Defaults:
+#                - Profile
+#                - Default
 
 sonata_block:
     context_manager: sonata.page.block.context_manager
@@ -139,30 +145,30 @@ sonata_block:
             contexts:   [admin]
         sonata.admin.block.search_result:
             contexts:   [admin]
-
-        #sonata.admin_doctrine_orm.block.audit:
-        #    contexts:   [admin]
-
-        # Builtin Block
+#
+#        #sonata.admin_doctrine_orm.block.audit:
+#        #    contexts:   [admin]
+#
+#        # Builtin Block
         sonata.block.service.text:
-        sonata.block.service.container:
-        sonata.block.service.rss:
-        sonata.block.service.menu:
-        sonata.block.service.template:
-
-        # PageBundle's Blocks
-        sonata.page.block.container:
-            # cache: sonata.cache.memcached
-            # cache: sonata.cache.predis
-            # cache: sonata.page.cache.esi # if you are using the PageBundle
-            # cache: sonata.block.cache.esi # if you are using the BlockBundle without the PageBundle
-        sonata.page.block.children_pages:
-        sonata.page.block.breadcrumb:
-
-        # MediaBundle's Blocks
-        sonata.media.block.media:
-        sonata.media.block.gallery:
-        sonata.media.block.feature_media:
+#        sonata.block.service.container:
+#        sonata.block.service.rss:
+#        sonata.block.service.menu:
+#        sonata.block.service.template:
+#
+#        # PageBundle's Blocks
+#        sonata.page.block.container:
+#            # cache: sonata.cache.memcached
+#            # cache: sonata.cache.predis
+#            # cache: sonata.page.cache.esi # if you are using the PageBundle
+#            # cache: sonata.block.cache.esi # if you are using the BlockBundle without the PageBundle
+#        sonata.page.block.children_pages:
+#        sonata.page.block.breadcrumb:
+#
+#        # MediaBundle's Blocks
+#        sonata.media.block.media:
+#        sonata.media.block.gallery:
+#        sonata.media.block.feature_media:
             
         
         sonata.user.block.menu:    # used to display the menu in profile pages

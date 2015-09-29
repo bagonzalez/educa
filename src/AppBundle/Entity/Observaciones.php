@@ -92,6 +92,11 @@ class Observaciones
     {
         return $this->idobservacion;
     }
+    
+    public function getId()
+    {
+        return $this->idobservacion;
+    }
 
     /**
      * Add evaluacion

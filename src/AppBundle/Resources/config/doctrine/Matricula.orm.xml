@@ -9,7 +9,7 @@
     <id name="idmatricula" type="integer" column="idMatricula">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="añoescolar" type="integer" column="añoEscolar" nullable="true"/>
+    <field name="anioescolar" type="integer" column="anioEscolar" nullable="true"/>
     <field name="repite" type="boolean" column="repite" nullable="false"/>
     <field name="sobreedad" type="boolean" column="sobreedad" nullable="false"/>
     <many-to-one field="nivelescolar" target-entity="Nivelescolar">

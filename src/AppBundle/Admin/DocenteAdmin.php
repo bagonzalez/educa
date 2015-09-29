@@ -87,7 +87,28 @@ class DocenteAdmin extends Admin{
                         'edit'              => 'inline',
                         'inline'            => 'table',
                         'sortable'          => 'position',                        
-                        'admin_code'        => 'sonata.admin.entidadeducativahasdocente'
+                        'admin_code'        => 'app.admin.entidadeducativahasdocente'
+                       
+                    )
+                         
+                    
+                )
+            ->end()
+            
+            ->with('Nivel Escolar')
+            /*->add('entidadeducativa', 
+                    'sonata_type_model', array('label' => 'Districts', 'expanded' => true, 'by_reference' => false, 'compound' => true, 'multiple' => true))
+            */
+            
+                ->add('nivelesAsignadosHasDocentes', 'sonata_type_collection', 
+                        
+                    array(
+                        'cascade_validation' => true,
+                    ), array(
+                        'edit'              => 'inline',
+                        'inline'            => 'table',
+                        'sortable'          => 'position',                        
+                        'admin_code'        => 'app.admin.docente_has_nivelescolar'
                        
                     )
                          

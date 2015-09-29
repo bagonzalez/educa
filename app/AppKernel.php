@@ -46,6 +46,8 @@ class AppKernel extends Kernel
             
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             
+            new Sonata\IntlBundle\SonataIntlBundle(),
+            
 
             
            
