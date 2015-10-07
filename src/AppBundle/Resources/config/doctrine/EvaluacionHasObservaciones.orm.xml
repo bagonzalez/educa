@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\EvaluacionHasObservaciones" table="Evaluacion_has_Observaciones">
+    <indexes>
+      <index name="fk_Evaluacion_has_Observaciones_Observaciones1_idx" columns="Observaciones"/>
+      <index name="fk_Evaluacion_has_Observaciones_Evaluacion1_idx" columns="Evaluacion"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="observaciones" target-entity="Observaciones" inversedBy="evaluacionHasObservaciones">
+      <join-columns>
+        <join-column name="Observaciones" referenced-column-name="idObservacion"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="evaluacion" target-entity="Evaluacion" inversedBy="evaluacionHasObservaciones" >
+      <join-columns>
+        <join-column name="Evaluacion" referenced-column-name="idEvaluacion"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

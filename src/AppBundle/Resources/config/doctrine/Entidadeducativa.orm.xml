@@ -32,7 +32,7 @@
           <join-column name="NivelEscolar" referenced-column-name="idNivelEscolar"/>
         </inverse-join-columns>
       </join-table>
-    </many-to-many>    
+    </many-to-many>
     <one-to-many field="entidadeducativaHasDocentes" target-entity="EntidadeducativaHasDocente" orphan-Removal="true" mapped-by="entidadeducativa">
         <cascade>
              <cascade-persist/>

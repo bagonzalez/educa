@@ -28,6 +28,8 @@ class Observaciones
      * @var \Doctrine\Common\Collections\Collection
      */
     private $evaluacion;
+    
+    protected $evaluacionHasObservaciones;
 
     /**
      * Constructor
@@ -129,5 +131,52 @@ class Observaciones
     public function getEvaluacion()
     {
         return $this->evaluacion;
+    }
+    
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setEvaluacionHasObservaciones($evaluacionHasObservaciones)
+    {
+        $this->evaluacionHasObservaciones = new ArrayCollection();
+
+        foreach ($evaluacionHasObservaciones as $evaluacionHasObservaciones) {
+            $this->addEvaluacionHasObservaciones($evaluacionHasObservaciones);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEvaluacionHasObservaciones()
+    {
+        return $this->evaluacionHasObservaciones;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addEvaluacionHasObservaciones(EvaluacionHasObservaciones $evaluacionHasObservaciones)
+    {
+        $evaluacionHasObservaciones->setObservaciones($this);
+
+        $this->evaluacionHasObservaciones[] = $evaluacionHasObservaciones;
+    }
+    
+    /**
+     * Remove entidadeducativa
+     *
+     * @param \AppBundle\Entity\EntidadeducativaHasDocente $entidadeducativaHasDocente
+     */
+    public function removeEvaluacionHasObservaciones(EvaluacionHasObservaciones $evaluacionHasObservaciones)
+    {
+        $this->evaluacionHasObservaciones->removeElement($evaluacionHasObservaciones);
+    }
+
+    
+      public function __toString()
+    {
+        return ''.$this->getNombreobservacion();
     }
 }

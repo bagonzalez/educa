@@ -38,6 +38,8 @@ class Evaluacion
      * @var \Doctrine\Common\Collections\Collection
      */
     private $observaciones;
+    
+    protected $evaluacionHasObservaciones;
 
     /**
      * Constructor
@@ -76,6 +78,11 @@ class Evaluacion
      * @return integer 
      */
     public function getIdevaluacion()
+    {
+        return $this->idevaluacion;
+    }
+    
+    public function getId()
     {
         return $this->idevaluacion;
     }
@@ -181,4 +188,66 @@ class Evaluacion
     {
         return $this->observaciones;
     }
+    
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setEvaluacionHasObservaciones($evaluacionHasObservaciones)
+    {
+        $this->evaluacionHasObservaciones = new ArrayCollection();
+
+        foreach ($evaluacionHasObservaciones as $evaluacionHasObservaciones) {
+            $this->addEvaluacionHasObservaciones($evaluacionHasObservaciones);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEvaluacionHasObservaciones()
+    {
+        return $this->evaluacionHasObservaciones;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addEvaluacionHasObservaciones(EvaluacionHasObservaciones $evaluacionHasObservaciones)
+    {
+        $evaluacionHasObservaciones->setEvaluacion($this);
+
+        $this->evaluacionHasObservaciones[] = $evaluacionHasObservaciones;
+    }
+    
+    /**
+     * Remove entidadeducativa
+     *
+     * @param \AppBundle\Entity\EntidadeducativaHasDocente $entidadeducativaHasDocente
+     */
+    public function removeEvaluacionHasObservaciones(EvaluacionHasObservaciones $evaluacionHasObservaciones)
+    {
+        $this->evaluacionHasObservaciones->removeElement($evaluacionHasObservaciones);
+    }
+
+    /**
+     * Set observaciones
+     *
+     * @param \AppBundle\Entity\Observaciones $observaciones
+     * @return Evaluacion
+     */
+    public function setObservaciones(\AppBundle\Entity\Observaciones $observaciones = null)
+    {
+        $this->observaciones = $observaciones;
+
+        return $this;
+    }
+    
+      public function __toString()
+    {
+        return ''.$this->getMatricula();
+    }
+    
+    
+    
 }

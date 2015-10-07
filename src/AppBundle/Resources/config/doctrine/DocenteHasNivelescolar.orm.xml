@@ -9,20 +9,19 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
- 
-    <one-to-one field="docente" target-entity="Docente">
-      <join-columns>
-        <join-column name="Docente" referenced-column-name="idDocente"/>
-      </join-columns>
-    </one-to-one>
-    <one-to-one field="nivelescolar" target-entity="Nivelescolar">
+    <many-to-one field="nivelescolar" target-entity="Nivelescolar">
       <join-columns>
         <join-column name="NivelEscolar" referenced-column-name="idNivelEscolar"/>
       </join-columns>
-    </one-to-one>
+    </many-to-one>
     <many-to-one field="entidadeducativa" target-entity="Entidadeducativa">
       <join-columns>
         <join-column name="EntidadEducativa" referenced-column-name="idEntidadEducativa"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="docente" target-entity="Docente">
+      <join-columns>
+        <join-column name="Docente" referenced-column-name="idDocente"/>
       </join-columns>
     </many-to-one>
   </entity>

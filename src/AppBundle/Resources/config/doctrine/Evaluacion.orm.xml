@@ -25,15 +25,10 @@
         <join-column name="Conducta" referenced-column-name="idConducta"/>
       </join-columns>
     </many-to-one>
-    <many-to-many field="observaciones" target-entity="Observaciones" inversed-by="evaluacion">
-      <join-table name="evaluacion_has_observaciones">
-        <join-columns>
-          <join-column name="Evaluacion" referenced-column-name="idEvaluacion"/>
-        </join-columns>
-        <inverse-join-columns>
-          <join-column name="Observaciones" referenced-column-name="idObservacion"/>
-        </inverse-join-columns>
-      </join-table>
-    </many-to-many>
+    <one-to-many field="evaluacionHasObservaciones" target-entity="EvaluacionHasObservaciones" mapped-by="evaluacion" inversedBy="evaluacion" orphan-Removal="false">
+            <cascade>
+                 <cascade-persist/>
+            </cascade>            
+     </one-to-many>
   </entity>
 </doctrine-mapping>

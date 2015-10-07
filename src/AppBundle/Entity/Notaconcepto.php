@@ -141,4 +141,9 @@ class Notaconcepto
     {
         return $this->idnotaconcepto;
     }
+    
+     public function __toString()
+    {
+        return $this->getNombreconcepto();
+    }
 }

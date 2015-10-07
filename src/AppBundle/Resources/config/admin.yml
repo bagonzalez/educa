@@ -118,3 +118,9 @@ services:
         arguments: [~, AppBundle\Entity\DocenteHasNivelescolar, AppBundle:DocenteHasNivelescolarAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: "Content", label: DocenteHasNivelescolar}
+
+    app.admin.evaluacion_has_observaciones:
+        class: AppBundle\Admin\EvaluacionHasObservacionesAdmin
+        arguments: [~, AppBundle\Entity\EvaluacionHasObservaciones, AppBundle:EvaluacionHasObservacionesAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: EvaluacionHasObservaciones}

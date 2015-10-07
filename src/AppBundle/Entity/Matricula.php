@@ -197,4 +197,9 @@ class Matricula
     {
         return $this->entidadeducativa;
     }
+    
+    public function __toString()
+    {
+        return "Matricula : ".$this->getId()."Estudiante ".$this->getEstudiante()." Colegio : ".$this->getEntidadeducativa();
+    }
 }

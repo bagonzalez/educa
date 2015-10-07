@@ -16,7 +16,10 @@ class EvaluacionAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('mesevaluacion')
+            ->add('mesevaluacion')          
+            ->add('matricula')
+            ->add('conducta')
+            ->add('notaconcepto')
             ->add('idevaluacion')
         ;
     }
@@ -28,7 +31,11 @@ class EvaluacionAdmin extends Admin
     {
         $listMapper
             ->add('mesevaluacion')
-            ->add('idevaluacion')
+           
+            ->add('matricula')
+            ->add('conducta')
+            ->add('notaconcepto')
+            ->addIdentifier('idevaluacion')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -46,23 +53,23 @@ class EvaluacionAdmin extends Admin
     {
         $formMapper
             ->add('mesevaluacion')
+            ->add('matricula')
+            ->add('conducta')
+            ->add('notaconcepto')
+                
                 
             ->end()
-            ->with('Colegio')
-            /*->add('entidadeducativa', 
-                    'sonata_type_model', array('label' => 'Districts', 'expanded' => true, 'by_reference' => false, 'compound' => true, 'multiple' => true))
-            */
-            
-                ->add('observaciones', 'sonata_type_collection', 
+            ->with('Observaciones')
+          
+                ->add('evaluacionHasObservaciones', 'sonata_type_collection', 
                         
                     array(
                         'cascade_validation' => true,
                     ), array(
                         'edit'              => 'inline',
                         'inline'            => 'table',
-                        'sortable'          => 'position',                        
-                        
-                       
+                        'sortable'          => 'position',   
+                        'admin_code'        => 'app.admin.evaluacion_has_observaciones'
                     )
                          
                     
@@ -77,7 +84,10 @@ class EvaluacionAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('mesevaluacion')
+             ->add('mesevaluacion')
+            ->add('matricula')
+            ->add('conducta')
+            ->add('notaconcepto')
             ->add('idevaluacion')
         ;
     }

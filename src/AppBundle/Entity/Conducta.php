@@ -80,4 +80,14 @@ class Conducta
     {
         return $this->idconducta;
     }
+    
+    public function getId()
+    {
+        return $this->idconducta;
+    }
+    
+    public function __toString()
+    {
+        return $this->getNombreitemconducta();
+    }
 }
