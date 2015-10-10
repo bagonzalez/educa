@@ -115,6 +115,27 @@ class DocenteAdmin extends Admin{
                     
                 )
             ->end()
+                
+            ->with('Usuario')
+            /*->add('entidadeducativa', 
+                    'sonata_type_model', array('label' => 'Districts', 'expanded' => true, 'by_reference' => false, 'compound' => true, 'multiple' => true))
+            */
+            
+                ->add('user', null,
+                        
+                    array(
+                        'cascade_validation' => true,
+                    ), array(
+                        'edit'              => 'inline',
+                        'inline'            => 'table',
+                        'sortable'          => 'position',                        
+                       
+                       
+                    )
+                         
+                    
+                )
+            ->end()
             //->add('author', 'entity', array('class' => 'AppBundle\Entity\Departamento'))
             //->add('body') //if no type is specified, SonataAdminBundle tries to guess it
         ;

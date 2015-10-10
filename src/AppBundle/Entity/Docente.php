@@ -35,6 +35,8 @@ class Docente
      */
     private $iddocente;
     
+    private $user;
+    
     protected $entidadeducativaHasDocentes;
     
     protected $nivelesAsignadosHasDocentes;
@@ -240,5 +242,28 @@ class Docente
     public function preUpdate()
     {
         $arreglo=$this->entidadeducativaHasDocentes;
+    }
+    
+    /**
+     * Set user
+     *
+     * @param string $user
+     * @return Docente
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
